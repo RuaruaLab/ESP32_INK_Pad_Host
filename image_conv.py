@@ -155,28 +155,28 @@ def print_img_buffer_as_c_array(img_buffer):
             print(", ", end="")
         if (i + 1) % 12 == 0:
             print()  # Newline after every 12 bytes
-
     print("\n};")
 
 
-# Example usage
-image_path = 'test6.jpg'  # Replace with your image path
-converter = ImageToEPaperBuffer(image_path)
-converter.load_image()
-converter.resize_with_letterbox()
-converter.convert_and_dither()
-converter.image_to_rgb_matrix()
-img_buffer = converter.process_image_to_buffer()
-# converter.image.show()
-# converter.convert_image_to_4_colors()
+if __name__ == "__main__":
+    # Example usage
+    image_path = 'Omamori.png'  # Replace with your image path
+    converter = ImageToEPaperBuffer(image_path)
+    converter.load_image()
+    converter.resize_with_letterbox()
+    converter.convert_and_dither()
+    converter.image_to_rgb_matrix()
+    img_buffer = converter.process_image_to_buffer()
+    # converter.image.show()
+    converter.convert_image_to_4_colors()
 
-print("Image Buffer:", img_buffer)
+    print("Image Buffer:", img_buffer)
 
-print_img_buffer_as_c_array(img_buffer)
-# col = 0
-# for i in range(7750):
-#     print(img_buffer[i])
-#     # col = col + 1
-#     if((col % 100) == 0):
-#         print(col)
+    print_img_buffer_as_c_array(img_buffer)
+    # col = 0
+    # for i in range(7750):
+    #     print(img_buffer[i])
+    #     # col = col + 1
+    #     if((col % 100) == 0):
+    #         print(col)
     
