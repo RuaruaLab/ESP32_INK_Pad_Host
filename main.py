@@ -18,7 +18,7 @@ def send_message(ser, cmd_id, data):
     ser.write(message)
 
 # -------------------图片转换----------------------
-converter = ImageToEPaperBuffer("test7.jpg")
+converter = ImageToEPaperBuffer("test_img/test6.jpg")
 converter.load_image()
 converter.resize_with_letterbox()
 converter.image_to_rgb_matrix()

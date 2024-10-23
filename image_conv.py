@@ -160,7 +160,7 @@ def print_img_buffer_as_c_array(img_buffer):
 
 if __name__ == "__main__":
     # Example usage
-    image_path = 'Omamori.png'  # Replace with your image path
+    image_path = 'test_img\test6.jpg'  # Replace with your image path
     converter = ImageToEPaperBuffer(image_path)
     converter.load_image()
     converter.resize_with_letterbox()
