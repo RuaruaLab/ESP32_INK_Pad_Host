@@ -4,17 +4,14 @@ import os
 from image_conv import ImageToEPaperBuffer
 
 def send_message(ser, cmd_id, data):
-    # 帧头和帧尾
     frame_start = 0x5C
     frame_end = 0x7A
     
     data_length = len(data) + 2
 
-    # 构建消息
     message = bytearray([frame_start, data_length, cmd_id]) + bytearray(data) + bytearray([frame_end])
     
     print("Complete message:", message.hex())
-    # 发送消息
     ser.write(message)
 
 # -------------------图片转换----------------------
@@ -60,5 +57,4 @@ if remaining_data > 0:
     send_message(ser, 0x01, last_packet)
 
 # ser.write(bytearray([0x5c, 0x01, 0x7a]))
-# 关闭串口
 ser.close()
