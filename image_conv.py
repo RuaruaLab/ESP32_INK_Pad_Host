@@ -133,8 +133,8 @@ class ImageToEPaperBuffer:
                 bit_offset = 6 - (index % 4) * 2
 
                 # Set the pixel in the buffer
-                self.img_buffer[byte_index] &= ~(0x03 << bit_offset)
-                self.img_buffer[byte_index] |= (color << bit_offset)
+                self.img_buffer[byte_index] &= ~(0x03 << bit_offset) & 0xFF
+                self.img_buffer[byte_index] |= (color << bit_offset) & 0xFF
 
         return self.img_buffer
 

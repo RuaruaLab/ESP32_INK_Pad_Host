@@ -60,8 +60,35 @@ def send_wifi_credentials(ssid, password):
 def main():
     ser.open()
 
-    # send_image("test_img/test.jpg")
-    send_wifi_credentials("ssid", "password")
+    print("Welcome! OMAMORI Project Configure Tool v1.0:")
+    print("Copyright: SK DESIGNED 2024\n")
+    print("Choose an option:")
+    print("1. Set business card image")
+    print("2. Set WiFi credentials")
+
+    choice = input()
+
+    if choice == '1':
+        image_path = input("Enter the path to the image: ")
+        if not os.path.isfile(image_path):
+            print("File not found. Please enter a valid path.")
+            return
+        send_image(image_path)
+    elif choice == '2':
+        ssid = input("Enter the SSID: ")
+        password = input("Enter the password: ")
+        if len(ssid) > 32 or len(password) > 64:
+            print("SSID or password length exceeds the limit")
+            return
+        if not ssid:
+            print("SSID or password is empty or blank")
+            return
+        send_wifi_credentials(ssid, password)
+    else:
+        print("Invalid choice. Please enter '1' or '2'.")
+
+    # send_image("test_img/test4.jpg")
+    # send_wifi_credentials("ssid", "password")
 
     ser.close()
 
